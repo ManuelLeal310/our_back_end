@@ -15,8 +15,6 @@ const app = express();
 require("./config")(app);
 
 // 👇 Start handling routes here
-const indexRoutes = require("./routes/index.routes");
-app.use("/api", indexRoutes);
 
 // ******* to handle the USER.ROUTES 
 // we are telling Express to store the file called user.routes that is inside the folder routes in the variable userRoutes

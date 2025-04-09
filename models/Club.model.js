@@ -9,6 +9,7 @@ const clubSchema = new Schema (
         style: { enum: ['Rock', 'Electronic', 'Pop', 'Hip Hop'] },
         lineUp: { type: String },
         entry: { type: Number },
+        image: { type: String }
     }
 );
 

@@ -17,16 +17,17 @@ router.post('/create', async (req, res) => {
 
 // ******* GET/ READ route
 
-// router.get('/festival', async (req,res) => {
-//     try {
-//         const allFestival = await FestivalModel.find();
-//         console.log('All festivals' Festival);
-//         res.status(200).json(Festival);
+router.get('/festival', async (req,res) => {
+    try {
+        const allFestival = await FestivalModel.find();
+        console.log('All festivals' Festival);
+        res.status(200).json(Festival);
 
-//     } catch (error) {
-//         res.status(500).json({Error: })
-//     }
-    
-// })
+    } catch (error) {
+        console.log('Error reading festivals');
+        res.status(500).json({Error: 'Problem reading festivals'});
+
+}
+});
 
 module.exports = router;

@@ -18,6 +18,12 @@ require("./config")(app);
 const indexRoutes = require("./routes/index.routes");
 app.use("/api", indexRoutes);
 
+// ******* to handle the USER.ROUTES 
+// we are telling Express to store the file called user.routes that is inside the folder routes in the variable userRoutes
+const userRoutes = require('./routes/user.routes');
+// we are using the app.use method (of Express) to transform the variable userRoutes to /user.
+app.use('/user', userRoutes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

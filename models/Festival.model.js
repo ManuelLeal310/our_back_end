@@ -5,7 +5,7 @@ const festivalSchema = new Schema (
      festName: { type: String },
      location: { type: String },
      date: { type: String },
-     duration: { Number min 1 },
+     duration: { Number },
      style: { enum: ['Rock', 'Electronic', 'Pop', 'Hip Hop'] },
      lineUp: { type: String },
      tktPrice: { type: Number },

@@ -24,6 +24,9 @@ const userRoutes = require('./routes/user.routes');
 // we are using the app.use method (of Express) to transform the variable userRoutes to /user.
 app.use('/user', userRoutes);
 
+const festivalRoutes = require('./routes/festival.routes');
+app.use('/festival', festivalRoutes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

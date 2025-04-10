@@ -5,7 +5,7 @@ const router = require("express").Router();
 
 router.post("/create", async (req, res) => {
   try {
-    const newClub = await ClubModel.create(req.bod);
+    const newClub = await ClubModel.create(req.body);
     console.log("We created our first club", newClub);
     res.status(201).json(newClub);
   } catch (error) {
@@ -19,7 +19,7 @@ router.post("/create", async (req, res) => {
 router.get("/read", async (req, res) => {
   try {
     const allClub = await ClubModel.find();
-    console.log("All Clubs", AllClub);
+    console.log("All Clubs", allClub);
     res.status(200).json(allClub);
   } catch (error) {
     console.log("Error reading Club");
@@ -55,7 +55,7 @@ router.delete("/delete/:clubId", async (req, res) => {
 //******* PUT / UPDATE ROUTE
 router.put("/update/:clubId", async (req, res) => {
   try {
-    const updatedClub = await ClubModelModel.findByIdAndUpdate(
+    const updatedClub = await ClubModel.findByIdAndUpdate(
       req.params.clubId,
       req.body,
       { new: true }

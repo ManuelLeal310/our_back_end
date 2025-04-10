@@ -18,12 +18,12 @@ require("./config")(app);
 
 // ******* to handle the USER.ROUTES 
 // we are telling Express to store the file called user.routes that is inside the folder routes in the variable userRoutes
-const userRoutes = require('./routes/user.routes');
+const adminRoutes = require('./routes/admin.routes');
 // we are using the app.use method (of Express) to transform the variable userRoutes to /user.
-app.use('/user', userRoutes);
+app.use('/admin', adminRoutes);
 
-const festivalRoutes = require('./routes/fest.routes');
-app.use('/fest', festivalRoutes);
+const festRoutes = require('./routes/fest.routes');
+app.use('/fest', festRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

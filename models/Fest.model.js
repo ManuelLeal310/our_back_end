@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const festivalSchema = new Schema (
+const festSchema = new Schema (
     {
      festName: { type: String },
      location: { type: String },
@@ -13,6 +13,6 @@ const festivalSchema = new Schema (
     }
 );
 
-const FestivalModel = model('Festival', festivalSchema);
+const FestModel = model('Fest', festSchema);
 
-module.exports = FestivalModel;
+module.exports = FestModel;

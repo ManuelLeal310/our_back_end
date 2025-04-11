@@ -30,4 +30,31 @@ res.status(500).json({Error: 'Problem creating newAdmin'});
 }
 });
 
+// ******* HERE we will POST/ Create a LOGIN with authetication
+
+router.post('/login', async (req, res) => {
+    try {
+        const foundAdmin = await AdminModel.findOne({email: req.body.email});
+        if (foundAdmin) {
+            console.log('Admin found');
+
+            const passwordMatch = await bcryptjs.compare(req.body.password, foundAdmin.password);
+            if (passwordMatch) {
+                console.log('Admin found AND password matches');
+                res.status(200).json({Message: 'Logged in'});
+            }
+            else { 
+                console.log('Admin found BUT password doesnt match');
+                res.status(401).json({Error: 'didnt work'});
+            } 
+        } else {
+            console.log('No admin found');
+            res.status(404).json({Error: 'didnt work'});
+        }
+    } catch (error) {
+        console.log('Error');
+        res.status(500).json({Error: 'Horror'});
+    }
+});
+
 module.exports = router;

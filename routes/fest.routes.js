@@ -63,7 +63,7 @@ router.put("/update/:festId", async (req, res) => {
       { new: true }
     );
     console.log("Update Successfully");
-    res.status(204).json(updatedFest);
+    res.status(202).json(updatedFest);
   } catch (error) {
     console.log("Problem Updating");
     res.status(500).json({ error: "Problem Updating" });

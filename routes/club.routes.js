@@ -61,7 +61,7 @@ router.put("/update/:clubId", async (req, res) => {
       { new: true }
     );
     console.log("Update Successfully");
-    res.status(204).json(updatedClub);
+    res.status(202).json(updatedClub);
   } catch (error) {
     console.log("Problem Updating");
     res.status(500).json({ error: "Problem Updating" });

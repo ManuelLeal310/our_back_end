@@ -43,9 +43,15 @@ router.post('/login', async (req, res) => {
             const passwordMatch = await bcryptjs.compare(req.body.password, foundAdmin.password);
             if (passwordMatch) {
                 console.log('Admin found AND password matches');
-                res.status(200).json({Message: 'Logged in'});
-            }
-            else { 
+                
+// ******** Object with user info
+                const adminInfo = { email: foundAdmin.email, adminName: foundAdmin.name};
+
+// ******** Create JWT token
+                const authToken = jwt.sign(adminInfo, process.env.TOKEN_SECRET, { algorithm: 'HS256', expiresIn: '24h'});
+                res.status(200).json({Message: 'Logged in', authToken });
+            
+        }  else { 
                 console.log('Admin found BUT password doesnt match');
                 res.status(401).json({Error: 'didnt work'});
             } 

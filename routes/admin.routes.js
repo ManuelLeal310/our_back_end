@@ -5,7 +5,9 @@ const router = require("express").Router();
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-// ******** MISSING AUTHENTHICATION FUNCTIO goes here:
+// ******** MISSING AUTHENTHICATION FUNCTION goes here:
+
+const { isAuthenticated } = require('../middlewares/jwt.middleware');
 
 // ******* router for POST/ CREATE user goes here
 
@@ -25,7 +27,7 @@ console.log('OMG we created a ADMIN');
 res.status(201).json(newAdmin);
 
 } catch (error) {
-console.log('Problem creating Admin');
+console.log(error);
 res.status(500).json({Error: 'Problem creating newAdmin'});
 }
 });
@@ -56,5 +58,14 @@ router.post('/login', async (req, res) => {
         res.status(500).json({Error: 'Horror'});
     }
 });
+
+// ******* here the GET/ read/ VERIFY route
+
+router.get('/verify', isAuthenticated, (req, res) => {
+console.log('here is the verified route');
+res.status(200).json({Message: 'Token valid', payload: req.payload });
+});
+
+
 
 module.exports = router;

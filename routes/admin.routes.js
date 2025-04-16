@@ -60,7 +60,7 @@ router.post('/login', async (req, res) => {
             res.status(404).json({Error: 'didnt work'});
         }
     } catch (error) {
-        console.log('Error');
+        console.log(error);
         res.status(500).json({Error: 'Horror'});
     }
 });

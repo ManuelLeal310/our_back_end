@@ -9,7 +9,7 @@ router.post("/create", async (req, res) => {
     console.log("We created our first festival", newFest);
     res.status(201).json(newFest);
   } catch (error) {
-    console.log("Well.... we did not create anything");
+    console.log(error);
     res.status(500).json({ Error: "Error creating Festival" });
   }
 });
@@ -22,7 +22,7 @@ router.get("/read", async (req, res) => {
     console.log("All festivals", allFest);
     res.status(200).json(allFest);
   } catch (error) {
-    console.log("Error reading festivals");
+    console.log(error);
     res.status(500).json({ Error: "Problem reading festivals" });
   }
 });

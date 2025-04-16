@@ -9,7 +9,7 @@ router.post("/create", async (req, res) => {
     console.log("We created our first club", newClub);
     res.status(201).json(newClub);
   } catch (error) {
-    console.log("Well...we did not create anything");
+    console.log(error);
     res.status(500).json({ Error: "Error creating Club" });
   }
 });
@@ -22,7 +22,7 @@ router.get("/read", async (req, res) => {
     console.log("All Clubs", allClub);
     res.status(200).json(allClub);
   } catch (error) {
-    console.log("Error reading Club");
+    console.log(error);
     res.status(500).json({ Error: "Problem reading clubs" });
   }
 });
@@ -35,7 +35,7 @@ router.get("/read/:clubId", async (req, res) => {
     console.log("One Club Found");
     res.status(200).json(readOne);
   } catch (error) {
-    console.log("Problem Finding One");
+    console.log(error);
     res.status(500).json({ Error: "Problem Reading One" });
   }
 });
@@ -47,7 +47,7 @@ router.delete("/delete/:clubId", async (req, res) => {
     console.log("Deleted Successfully");
     res.status(204).json(deletedClub);
   } catch (error) {
-    console.log("Problem deleting Club");
+    console.log(error);
     res.status(500).json({ Error: "Problem deleting Club" });
   }
 });

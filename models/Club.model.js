@@ -6,7 +6,7 @@ const clubSchema = new Schema (
         location: { type: String },
         event: { type: String },
         date: { type: String },
-        style: { enum: ['Rock', 'Electronic', 'Pop', 'Hip Hop'] },
+        style: { type: String },
         lineUp: { type: String },
         entry: { type: Number },
         image: { type: String }

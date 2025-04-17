@@ -5,7 +5,7 @@ const festSchema = new Schema (
      festName: { type: String },
      location: { type: String },
      date: { type: String },
-     duration: { Number },
+     duration: { type: Number },
      style: { type: String },
      lineUp: { type: String },
      tktPrice: { type: Number },
